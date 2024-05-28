@@ -1,21 +1,43 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css";
+import Logo from "@/components/Logo";
+import NavBar from "@/components/NavBar";
+import NavMenu from "@/components/NavMenu";
+import { useAuth } from "@/hooks/useAuth";
+import { useTranslation } from "react-i18next";
 
 export default function Layout() {
+  const { t } = useTranslation();
+  const { data } = useAuth();
+
   return (
     <>
-    <header className='bg-slate-800'>
-      <div className='mx-auto max-w-6xl py-10'>
-        <h1 className='text-4xl font-extrabold text-white'>
-          Administrador de Productos
-        </h1>
-      </div>
-    </header>
+      <header className="bg-emerald-950 bg-opacity-90 py-5 fixed top-0 min-w-full z-20"
+      style={{borderBottom: "10px solid #1b5737"}}>
+        <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between items-center">
+          <div className="w-40">
+            <Link to={"/"}>
+              <Logo />
+            </Link>
+          </div>
+          <NavBar />
+          <NavMenu name={data?.name ?? ""} role={data?.role ?? ""} />
+        </div>
+      </header>
 
-    <main className='mt-10 mx-auto max-w-6xl p-10 bg-white shadow'>
-    <Outlet/>
-    </main>
-    
+      <section>
+        <Outlet />
+      </section>
+      <footer className=" bg-emerald-950 text-white py-4 static bottom-0 w-full">
+        <div className="container mx-auto text-center">
+          <p className="text-sm">
+            © {new Date().getFullYear()} {t("RIGHT_RESERVED")}
+          </p>
+        </div>
+      </footer>
+
+      <ToastContainer pauseOnHover={false} pauseOnFocusLoss={false} />
     </>
-    
-  )
+  );
 }
