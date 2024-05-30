@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { getHorses } from "@/services/HorsesService";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material/";
+import { Link } from "react-router-dom";
 
 export default function SponsorCarousel() {
   const { data } = useQuery({
@@ -25,23 +26,27 @@ export default function SponsorCarousel() {
 
   return (
     <div className="carousel">
-      <ArrowBackIos className="cursor-pointer z-10" onClick={scrollIzq} />
+      <ArrowBackIos className="cursor-pointer z-1" onClick={scrollIzq} />
       <div
         className="carouselContainer"
         ref={carouselRef}
         style={{ scrollBehavior: "smooth" }}
       >
         {data?.map((horse) => (
-          <div className="carouselCard" key={horse._id}>
-            <p className="textHorseName absolute text-white text-2xl uppercase font-semibold">
-              {horse.horseName}
-            </p>
-            <img
-              src={`${import.meta.env.VITE_IMAGES_URL}${horse.image}`}
-              alt={horse.horseName}
-              style={{ maxHeight: "100%", objectFit: "contain", width: "100%" }}
-            />
-          </div>
+          <Link key={horse._id} to={`/horses/${horse._id}`}>
+            <div className="carouselCard" key={horse._id}>
+              <p className="textHorseName">{horse.horseName}</p>
+              <img
+                src={`${import.meta.env.VITE_IMAGES_URL}${horse.image}`}
+                alt={horse.horseName}
+                style={{
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                  width: "100%",
+                }}
+              />
+            </div>
+          </Link>
         ))}
       </div>
       <ArrowForwardIos className="cursor-pointer z-10" onClick={scrollDer} />

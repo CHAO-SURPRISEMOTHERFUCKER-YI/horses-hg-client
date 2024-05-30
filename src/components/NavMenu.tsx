@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { AccountCircle, Language} from "@mui/icons-material";
+import { AccountCircle, Language } from "@mui/icons-material";
 import { Popover, Transition } from "@headlessui/react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Fragment } from "react";
@@ -84,12 +84,28 @@ export default function NavMenu({ name, role }: NavMenuProps) {
                     {t("PROFILE")}
                   </Link>
                   {role === "admin" ? (
-                    <Link to="/horses/list" className="block p-2 hover:text-purple-950">
+                    <Link
+                      to="/horses/list"
+                      className="block p-2 hover:text-purple-950"
+                    >
                       {t("MY_HORSES")}
                     </Link>
                   ) : (
                     <Link to="/" className="block p-2 hover:text-purple-950">
                       {t("MY_HORSES")}
+                    </Link>
+                  )}
+
+                  {role === "admin" ? (
+                    <Link
+                      to="/activities/list"
+                      className="block p-2 hover:text-purple-950"
+                    >
+                      {t("MY_ACTIVITIES")}
+                    </Link>
+                  ) : (
+                    <Link to="/" className="block p-2 hover:text-purple-950">
+                      {t("MY_ACTIVITIES")}
                     </Link>
                   )}
 

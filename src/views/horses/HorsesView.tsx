@@ -17,7 +17,7 @@ export default function HorsesView() {
 
   if (data)
     return (
-      <>
+      <div className="min-h-screen">
         <h1 className="text-5xl font-black text-center">
           {t("SPONSOR_HORSE")}
         </h1>
@@ -57,6 +57,6 @@ export default function HorsesView() {
             </Link>
           </p>
         )}
-      </>
+      </div>
     );
 }

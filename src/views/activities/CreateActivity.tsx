@@ -2,18 +2,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import HorseForm from "@/components/horses/HorseForm";
-import { HorseFormData } from "@/types/index";
-import { createHorse } from "@/services/HorsesService";
-import ImageUpload from "@/components/ImageUpload";
+import { ActivityFormData } from "@/types/index";
+import { createActivity } from "@/services/ActivitiesService";
 import ErrorMessage from "../../components/ErrorMessage";
+import ActivityForm from "@/components/activities/ActivityForm";
+import ImageUpload from "@/components/ImageUpload";
 
-export default function CreateHorseView() {
+export default function CreateActivity() {
   const navigate = useNavigate();
 
-  const initialValues: HorseFormData = {
-    horseName: "",
+  const initialValues: ActivityFormData = {
+    activityName: "",
     available: "",
+    startDate: new Date(),
     description: "",
     image: "",
   };
@@ -26,17 +27,17 @@ export default function CreateHorseView() {
   } = useForm({ defaultValues: initialValues });
 
   const { mutate } = useMutation({
-    mutationFn: createHorse,
+    mutationFn: createActivity,
     onError: (error) => {
       toast.error(error.message);
     },
     onSuccess: (data) => {
       toast.success(data);
-      navigate("/horses/list");
+      navigate("/activities");
     },
   });
 
-  const handleForm = (formData: HorseFormData) => {
+  const handleForm = (formData: ActivityFormData) => {
     if (!formData.image) {
       toast.error("Debe seleccionar una imagen");
       return;
@@ -56,7 +57,7 @@ export default function CreateHorseView() {
           onSubmit={handleSubmit(handleForm)}
           noValidate
         >
-          <HorseForm register={register} errors={errors} />
+          <ActivityForm register={register} errors={errors} />
           <div className="mb-5 space-y-3">
             <label
               htmlFor="description"
@@ -83,7 +84,7 @@ export default function CreateHorseView() {
               type="submit"
               className="bg-green-600 hover:bg-green-700 px-8 py-3 text-white text-xl font-bold cursor-pointer transition-colors rounded"
             >
-              Registrar caballo
+              Registrar activitdad
             </button>
           </div>
         </form>

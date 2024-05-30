@@ -56,3 +56,28 @@ export type HorseFormData = Pick<
   Horse,
   "horseName" | "available" | "description" | "image"
 >;
+
+// ACTIVITIES
+export const ActivitySchema = z.object({
+  _id: z.string(),
+  activityName: z.string(),
+  available: z.string(),
+  description: z.string(),
+  startDate: z.date(),
+  image: z.string(),
+});
+export const dashboardActivitySchema = z.array(
+  ActivitySchema.pick({
+    _id: true,
+    activityName: true,
+    available: true,
+    description: true,
+    startDate: true,
+    image: true,
+  })
+);
+export type Activity = z.infer<typeof ActivitySchema>;
+export type ActivityFormData = Pick<
+  Activity,
+  "activityName" | "available" | "description" | "startDate" | "image" 
+>;

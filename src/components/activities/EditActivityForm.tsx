@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import HorseForm from "./HorseForm";
-import { Horse, HorseFormData } from "@/types/index";
+import ActivityForm from "../activities/ActivityForm";
+import { Activity, ActivityFormData } from "@/types/index";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateHorse } from "@/services/HorsesService";
+import { updateActivity } from "@/services/ActivitiesService";
 import { toast } from "react-toastify";
 import ImageUpload from "../ImageUpload";
-import ErrorMessage from "../../components/ErrorMessage";
+import ErrorMessage from "../ErrorMessage";
 
-type EditHorseFormProps = {
-  data: HorseFormData;
-  horseId: Horse["_id"];
+type EditActivityFormProps = {
+  data: ActivityFormData;
+  activityId: Activity["_id"];
 };
 
-export default function EditHorseForm({ data, horseId }: EditHorseFormProps) {
+export default function EditActivityForm({ data, activityId }: EditActivityFormProps) {
   const navigate = useNavigate();
 
   const {
@@ -23,9 +23,10 @@ export default function EditHorseForm({ data, horseId }: EditHorseFormProps) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      horseName: data.horseName,
+      activityName: data.activityName,
       available: data.available,
       description: data.description,
+      startDate: data.startDate,
       image: data.image,
     },
   });
@@ -33,22 +34,22 @@ export default function EditHorseForm({ data, horseId }: EditHorseFormProps) {
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationFn: updateHorse,
+    mutationFn: updateActivity,
     onError: (error) => {
       toast.error(error.message);
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["horses"] });
-      queryClient.invalidateQueries({ queryKey: ["editHorse", horseId] });
+      queryClient.invalidateQueries({ queryKey: ["activities"] });
+      queryClient.invalidateQueries({ queryKey: ["editActivity", activityId] });
       toast.success(data);
-      navigate("/horses/list");
+      navigate("/activities/list");
     },
   });
 
-  const handleForm = (formData: HorseFormData) => {
+  const handleForm = (formData: ActivityFormData) => {
     const data = {
       formData,
-      horseId,
+      activityId,
     };
     mutate(data);
   };
@@ -65,7 +66,7 @@ export default function EditHorseForm({ data, horseId }: EditHorseFormProps) {
           onSubmit={handleSubmit(handleForm)}
           noValidate
         >
-          <HorseForm register={register} errors={errors} />
+          <ActivityForm register={register} errors={errors} />
           <div className="mb-5 space-y-3">
             <label
               htmlFor="description"
