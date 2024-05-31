@@ -19,6 +19,9 @@ import CreateActivity from "./views/activities/CreateActivity";
 import ActivitiesList from "./views/activities/ActivitiesList";
 import EditActivity from "./views/activities/EditActivity";
 import About from "./views/about/About";
+import ProfileView from "./views/profile/ProfileView";
+import ChangePassword from "./views/profile/ChangePassword";
+import ProfileLayout from "./layouts/ProfileLayout";
 
 export default function Router() {
   return (
@@ -34,8 +37,13 @@ export default function Router() {
           <Route path="/activities" element={<ActivitiesView />} />
           <Route path="/activities/create" element={<CreateActivity />} />
           <Route path="/activities/list" element={<ActivitiesList />} />
-          <Route path="/activities/:activityId/edit" element={<EditActivity />} />
+          <Route path="/activities/:activityId/edit" element={<EditActivity />}
+          />
           <Route path="/about_us" element={<About />} />
+          <Route element={<ProfileLayout />}>
+            <Route path="/profile" element={<ProfileView />} />
+            <Route path="/profile/password" element={<ChangePassword />} />
+          </Route>
         </Route>
 
         <Route element={<AuthLayout />}>
@@ -43,7 +51,10 @@ export default function Router() {
           <Route path="/auth/register" element={<RegisterView />} />
           <Route path="/auth/confirm-account" element={<ConfirmAccountView />} />
           <Route path="/auth/request-code" element={<RequestNewCodeView />} />
-          <Route path="/auth/forgot-password" element={<ForgotPasswordView />} />
+          <Route
+            path="/auth/forgot-password"
+            element={<ForgotPasswordView />}
+          />
           <Route path="/auth/new-password" element={<NewPasswordView />} />
         </Route>
 

@@ -90,21 +90,21 @@ export default function Home() {
                     <Place />
                   </td>
                   <td className="p-3 text-right">Address</td>
-                  <td className="p-3">Pilsen</td>
+                  <td className="p-3"><a href="https://maps.app.goo.gl/bCz1vnzmwHh1qwkW9" target="_blank">Na Chmelnici 285, Klatovy IV, 339 01 Klatovy, Pilsen</a></td>
                 </tr>
                 <tr>
                   <td>
                     <Phone />
                   </td>
                   <td className="p-3 text-right">Phone</td>
-                  <td className="p-3">638774107</td>
+                  <td className="p-3"><a href="tel:638774107">638774107</a></td>
                 </tr>
                 <tr>
                   <td>
                     <Email />
                   </td>
                   <td className="p-3 text-right">Email</td>
-                  <td className="p-3">chyrsq2001@gmail.com</td>
+                  <td className="p-3"><a href="mailto:chyrsq2001@gmail.com">chyrsq2001@gmail.com</a></td>
                 </tr>
               </table>
             </div>

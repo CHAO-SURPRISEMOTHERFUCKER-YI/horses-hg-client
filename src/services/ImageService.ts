@@ -3,7 +3,7 @@ import api from "../lib/axios";
 
 export async function uploadImage(formData: FormData) {
   try {
-    const { data } = await api.post("/upload", formData);
+    const { data } = await api.post("/uploads", formData);
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {

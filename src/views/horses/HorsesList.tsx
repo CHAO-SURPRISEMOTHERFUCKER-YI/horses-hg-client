@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Loading from "@/components/Loading";
-import { deleteHorse, getHorses } from "@/services/HorsesService";
+import { getHorses } from "@/services/HorsesService";
 import {
   Avatar,
   Table,
@@ -9,15 +10,16 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { Edit, Delete } from "@mui/icons-material";
+import DeleteHorse from "@/components/horses/DeleteHorse";
 
 export default function HorsesList() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [deleteHorseId, setDeleteHorseId] = useState<string>("");
 
   const { data, isLoading } = useQuery({
     queryKey: ["horses"],
@@ -25,17 +27,13 @@ export default function HorsesList() {
     retry: false,
   });
 
-  const queryClient = useQueryClient();
-  const { mutate } = useMutation({
-    mutationFn: deleteHorse,
-    onError: (error) => {
-      toast.error(error.message);
-    },
-    onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["horses"] });
-      toast.success(data);
-    },
-  });
+  const handleDelete = (horseId: string) => {
+    setDeleteHorseId(horseId);
+  };
+
+  const handleClose = () => {
+    setDeleteHorseId("");
+  };
 
   if (isLoading) return <Loading />;
 
@@ -82,7 +80,7 @@ export default function HorsesList() {
                   </button>
                   <button
                     className="bg-red-700 p-3 text-white font-bold rounded-full"
-                    onClick={() => mutate(horse._id)}
+                    onClick={() => handleDelete(horse._id)}
                   >
                     <Delete />
                   </button>
@@ -92,6 +90,7 @@ export default function HorsesList() {
           </TableBody>
         </Table>
       </TableContainer>
+      <DeleteHorse deleteHorseId={deleteHorseId} onClose={handleClose} />
     </div>
   );
 }

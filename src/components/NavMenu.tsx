@@ -90,11 +90,7 @@ export default function NavMenu({ name, role }: NavMenuProps) {
                     >
                       {t("MY_HORSES")}
                     </Link>
-                  ) : (
-                    <Link to="/" className="block p-2 hover:text-purple-950">
-                      {t("MY_HORSES")}
-                    </Link>
-                  )}
+                  ) : null}
 
                   {role === "admin" ? (
                     <Link
@@ -103,11 +99,7 @@ export default function NavMenu({ name, role }: NavMenuProps) {
                     >
                       {t("MY_ACTIVITIES")}
                     </Link>
-                  ) : (
-                    <Link to="/" className="block p-2 hover:text-purple-950">
-                      {t("MY_ACTIVITIES")}
-                    </Link>
-                  )}
+                  ) : null}
 
                   <button
                     className="block p-2 hover:text-purple-950"

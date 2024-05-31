@@ -19,6 +19,8 @@ body {
   max-width: 100%;
   min-height: 100%;
   object-fit: cover;
+  user-select: none;
+  pointer-events: none;
 }
 .welcome {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);

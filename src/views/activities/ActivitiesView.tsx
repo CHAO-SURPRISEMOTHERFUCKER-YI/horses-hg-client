@@ -19,10 +19,10 @@ export default function ActivitiesView() {
     return (
     <div className="min-h-screen">
         <h1 className="text-5xl font-black text-center">
-          {t("SPONSOR_HORSE")}
+          {t("JOIN_ACTIVITIES")}
         </h1>
         <p className="text-2xl font-light text-slate-500 mt-5 text-center mb-10">
-          {t("DESCRIPTION_HORSE")}
+          {t("DESCRIPTION_ACTIVITIES")}
         </p>
         {data.length ? (
           <Grid container className=" px-20">

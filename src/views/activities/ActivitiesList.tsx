@@ -1,5 +1,6 @@
+import DeleteActivity from "@/components/activities/DeleteActivity";
 import Loading from "@/components/Loading";
-import { deleteActivity, getActivities } from "@/services/ActivitiesService";
+import { getActivities } from "@/services/ActivitiesService";
 import { Delete, Edit } from "@mui/icons-material";
 import {
   Avatar,
@@ -10,14 +11,15 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 export default function ActivitiesList() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [deleteActivityId, setDeleteActivityId] = useState<string>("");
 
   const { data, isLoading } = useQuery({
     queryKey: ["activities"],
@@ -25,17 +27,13 @@ export default function ActivitiesList() {
     retry: false,
   });
 
-  const queryClient = useQueryClient();
-  const { mutate } = useMutation({
-    mutationFn: deleteActivity,
-    onError: (error) => {
-      toast.error(error.message);
-    },
-    onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["activities"] });
-      toast.success(data);
-    },
-  });
+  const handleDelete = (activityId: string) => {
+    setDeleteActivityId(activityId);
+  };
+
+  const handleClose = () => {
+    setDeleteActivityId("");
+  };
 
   if (isLoading) return <Loading />;
 
@@ -82,7 +80,7 @@ export default function ActivitiesList() {
                   </button>
                   <button
                     className="bg-red-700 p-3 text-white font-bold rounded-full"
-                    onClick={() => mutate(activity._id)}
+                    onClick={() => handleDelete(activity._id)}
                   >
                     <Delete />
                   </button>
@@ -92,6 +90,10 @@ export default function ActivitiesList() {
           </TableBody>
         </Table>
       </TableContainer>
+      <DeleteActivity
+        deleteActivityId={deleteActivityId}
+        onClose={handleClose}
+      />
     </div>
   );
 }
