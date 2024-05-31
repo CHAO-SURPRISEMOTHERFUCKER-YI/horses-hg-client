@@ -24,8 +24,14 @@ export default function EditHorseForm({ data, horseId }: EditHorseFormProps) {
   } = useForm({
     defaultValues: {
       horseName: data.horseName,
-      available: data.available,
+      age: data.age,
+      gender: data.gender,
+      breed: data.breed,
+      color: data.color,
+      height: data.height,
       description: data.description,
+      available: data.available,
+      price: data.price,
       image: data.image,
     },
   });

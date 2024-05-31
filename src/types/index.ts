@@ -19,7 +19,10 @@ export type UserRegistrationForm = Pick<
 export type RequestCodeForm = Pick<Auth, "email">;
 export type ForgotPasswordForm = Pick<Auth, "email">;
 export type NewPasswordForm = Pick<Auth, "password" | "password_confirmation">;
-export type UpdateCurrentPassword = Pick<Auth, "current_password" | "password" | "password_confirmation">;
+export type UpdateCurrentPassword = Pick<
+  Auth,
+  "current_password" | "password" | "password_confirmation"
+>;
 export type ConfirmToken = Pick<Auth, "token">;
 
 // USERS
@@ -40,23 +43,44 @@ export type UserProfileForm = Pick<User, "name" | "email">;
 export const HorseSchema = z.object({
   _id: z.string(),
   horseName: z.string(),
-  available: z.string(),
+  age: z.number(),
+  gender: z.string(),
+  breed: z.string(),
+  color: z.string(),
+  height: z.number(),
   description: z.string(),
+  available: z.string(),
+  price: z.number(),
   image: z.string(),
 });
 export const dashboardHorseSchema = z.array(
   HorseSchema.pick({
     _id: true,
     horseName: true,
-    available: true,
+    age: true,
+    gender: true,
+    breed: true,
+    color: true,
+    height: true,
     description: true,
+    available: true,
+    price: true,
     image: true,
   })
 );
 export type Horse = z.infer<typeof HorseSchema>;
 export type HorseFormData = Pick<
   Horse,
-  "horseName" | "available" | "description" | "image"
+  | "horseName"
+  | "age"
+  | "gender"
+  | "breed"
+  | "color"
+  | "height"
+  | "description"
+  | "available"
+  | "price"
+  | "image"
 >;
 
 // ACTIVITIES
