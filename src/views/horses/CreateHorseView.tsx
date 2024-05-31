@@ -13,8 +13,14 @@ export default function CreateHorseView() {
 
   const initialValues: HorseFormData = {
     horseName: "",
-    available: "",
+    age: 0,
+    gender: "",
+    breed: "",
+    color: "",
+    height: 0,
     description: "",
+    available: "",
+    price: 0,
     image: "",
   };
 
