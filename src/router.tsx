@@ -24,7 +24,7 @@ import ChangePassword from "./views/profile/ChangePassword";
 import ProfileLayout from "./layouts/ProfileLayout";
 import Cookies from "./views/docs/Cookies";
 import Privacy from "./views/docs/Privacy";
-import Terms from "./views/docs/terms";
+import Terms from "./views/docs/Terms";
 
 export default function Router() {
   return (
