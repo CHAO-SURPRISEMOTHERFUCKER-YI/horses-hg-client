@@ -30,12 +30,15 @@ export default function Layout() {
         <div className="mt-52"></div>
         <Outlet />
       </section>
-      <footer className=" bg-emerald-950 text-white py-4 static bottom-0 w-full">
-        <div className="container mx-auto text-center">
+      <footer className=" bg-emerald-950 text-white py-4 static bottom-0 w-full ">
+        <div className="container mx-auto text-center space-x-4 flex justify-center">
           <p className="text-sm">{new Date().getFullYear()} Horses HG</p>
+          <div className="h-6 bg-white w-px"></div>
           <p className="text-sm"><Link to={"/terms"}>Terminos y Condiciones</Link></p>
+          <div className="h-6 bg-white w-px"></div>
           <p className="text-sm"><Link to={"/cookies"}>Políticas de Cookies</Link></p>
-          <p className="text-sm"><Link to={"/private"}>Políticas de Privacidad</Link></p>
+          <div className="h-6 bg-white w-px"></div>
+          <p className="text-sm"><Link to={"/privacy"}>Políticas de Privacidad</Link></p>
         </div>
       </footer>
 

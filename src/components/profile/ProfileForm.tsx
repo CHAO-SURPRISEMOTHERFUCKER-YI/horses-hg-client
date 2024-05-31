@@ -30,7 +30,7 @@ export default function ProfileForm({ data }: ProfileFromProps) {
 
   return (
     <>
-      <div className="mx-auto max-w-3xl g">
+      <div className="mx-auto max-w-3xl min-h-screen">
         <h1 className="text-5xl font-black ">Mi Perfil</h1>
         <p className="text-2xl font-light text-gray-500 mt-5">
           Aquí puedes actualizar tu información

@@ -1,7 +1,7 @@
 export default function Cookies() {
   return (
-    <>
-      <h1>Política de Cookies</h1>
+    <div className="mx-60 min-h-screen p-10 bg-white mb-20">
+      <h1 className="text-5xl font-black text-center mb-10">Política de Cookies</h1>
 
       <p>
         En nuestra página web utilizamos cookies para mejorar su experiencia y
@@ -9,7 +9,7 @@ export default function Cookies() {
         cómo las utilizamos y cómo puede gestionarlas.
       </p>
 
-      <h2>1. ¿Qué son las cookies?</h2>
+      <h2 className="text-2xl font-black mt-4 mb-2">1. ¿Qué son las cookies?</h2>
       <p>
         Las cookies son pequeños archivos de texto que se almacenan en su
         dispositivo (ordenador, tableta, teléfono móvil) cuando visita un sitio
@@ -20,22 +20,22 @@ export default function Cookies() {
         de una página a otra.
       </p>
 
-      <h2>2. ¿Qué tipos de cookies utilizamos?</h2>
-      <h3>2.1 Cookies necesarias</h3>
+      <h2 className="text-2xl font-black mt-4 mb-2">2. ¿Qué tipos de cookies utilizamos?</h2>
+      <h3 className="text-lg font-black mt-2 mb-1">2.1 Cookies necesarias</h3>
       <p>
         Estas cookies son esenciales para que pueda navegar por el sitio web y
         utilizar sus funciones. Sin estas cookies, no podemos proporcionar
         ciertos servicios, como el inicio de sesión o la cesta de la compra.
       </p>
 
-      <h3>2.2 Cookies de preferencias</h3>
+      <h3 className="text-lg font-black mt-2 mb-1">2.2 Cookies de preferencias</h3>
       <p>
         Estas cookies permiten que el sitio web recuerde sus elecciones (como su
         nombre de usuario, idioma o región) y proporcionen características
         mejoradas y más personalizadas.
       </p>
 
-      <h3>2.3 Cookies de rendimiento</h3>
+      <h3 className="text-lg font-black mt-2 mb-1">2.3 Cookies de rendimiento</h3>
       <p>
         Estas cookies recopilan información sobre cómo los visitantes utilizan
         un sitio web, por ejemplo, qué páginas visitan con más frecuencia y si
@@ -45,7 +45,7 @@ export default function Cookies() {
         utilizan para mejorar el funcionamiento de un sitio web.
       </p>
 
-      <h3>2.4 Cookies de marketing</h3>
+      <h3 className="text-lg font-black mt-2 mb-1">2.4 Cookies de marketing</h3>
       <p>
         Estas cookies se utilizan para entregar anuncios más relevantes para
         usted y sus intereses. También se utilizan para limitar el número de
@@ -56,7 +56,7 @@ export default function Cookies() {
         anunciantes.
       </p>
 
-      <h2>3. ¿Cómo puede gestionar las cookies?</h2>
+      <h2 className="text-2xl font-black mt-4 mb-2">3. ¿Cómo puede gestionar las cookies?</h2>
       <p>
         Puede gestionar y/o eliminar las cookies como desee. Para más detalles,
         consulte{" "}
@@ -70,18 +70,18 @@ export default function Cookies() {
         funcionalidades pueden no funcionar.
       </p>
 
-      <h2>4. Consentimiento</h2>
+      <h2 className="text-2xl font-black mt-4 mb-2">4. Consentimiento</h2>
       <p>
         Al utilizar nuestro sitio web, usted acepta que podamos colocar estas
         cookies en su dispositivo.
       </p>
 
-      <h2>5. Contacto</h2>
+      <h2 className="text-2xl font-black mt-4 mb-2">5. Contacto</h2>
       <p>
         Si tiene alguna pregunta o inquietud sobre nuestra política de cookies,
         por favor contáctenos a través de la información proporcionada en
         nuestra página de contacto.
       </p>
-    </>
+    </div>
   );
 }

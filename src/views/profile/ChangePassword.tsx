@@ -29,11 +29,12 @@ export default function ChangePasswordView() {
 
   const password = watch("password");
 
-  const handleChangePassword = (formData: UpdateCurrentPassword) => mutate(formData);
+  const handleChangePassword = (formData: UpdateCurrentPassword) =>
+    mutate(formData);
 
   return (
     <>
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl min-h-screen">
         <h1 className="text-5xl font-black ">Cambiar Password</h1>
         <p className="text-2xl font-light text-gray-500 mt-5">
           Utiliza este formulario para cambiar tu password
@@ -115,7 +116,7 @@ export default function ChangePasswordView() {
           <input
             type="submit"
             value="Cambiar Password"
-            className="bg-fuchsia-600 w-full p-3 text-white uppercase font-bold hover:bg-fuchsia-700 cursor-pointer transition-colors"
+            className="bg-emerald-600 w-full p-3 text-white uppercase font-bold emerald:bg-fuchsia-700 cursor-pointer transition-colors"
           />
         </form>
       </div>

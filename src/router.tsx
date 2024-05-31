@@ -22,7 +22,7 @@ import About from "./views/about/About";
 import ProfileView from "./views/profile/ProfileView";
 import ChangePassword from "./views/profile/ChangePassword";
 import ProfileLayout from "./layouts/ProfileLayout";
-import Terms from "./views/docs/terms";
+import Terms from "./views/docs/Terms";
 import Cookies from "./views/docs/Cookies";
 import Privacy from "./views/docs/Privacy";
 
