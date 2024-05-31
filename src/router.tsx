@@ -22,6 +22,9 @@ import About from "./views/about/About";
 import ProfileView from "./views/profile/ProfileView";
 import ChangePassword from "./views/profile/ChangePassword";
 import ProfileLayout from "./layouts/ProfileLayout";
+import Terms from "./views/docs/terms";
+import Cookies from "./views/docs/Cookies";
+import Privacy from "./views/docs/Privacy";
 
 export default function Router() {
   return (
@@ -37,19 +40,27 @@ export default function Router() {
           <Route path="/activities" element={<ActivitiesView />} />
           <Route path="/activities/create" element={<CreateActivity />} />
           <Route path="/activities/list" element={<ActivitiesList />} />
-          <Route path="/activities/:activityId/edit" element={<EditActivity />}
+          <Route
+            path="/activities/:activityId/edit"
+            element={<EditActivity />}
           />
           <Route path="/about_us" element={<About />} />
           <Route element={<ProfileLayout />}>
             <Route path="/profile" element={<ProfileView />} />
             <Route path="/profile/password" element={<ChangePassword />} />
           </Route>
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Route>
 
         <Route element={<AuthLayout />}>
           <Route path="/auth/login" element={<LoginView />} />
           <Route path="/auth/register" element={<RegisterView />} />
-          <Route path="/auth/confirm-account" element={<ConfirmAccountView />} />
+          <Route
+            path="/auth/confirm-account"
+            element={<ConfirmAccountView />}
+          />
           <Route path="/auth/request-code" element={<RequestNewCodeView />} />
           <Route
             path="/auth/forgot-password"

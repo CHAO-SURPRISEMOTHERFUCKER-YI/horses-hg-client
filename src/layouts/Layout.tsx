@@ -33,6 +33,9 @@ export default function Layout() {
       <footer className=" bg-emerald-950 text-white py-4 static bottom-0 w-full">
         <div className="container mx-auto text-center">
           <p className="text-sm">{new Date().getFullYear()} Horses HG</p>
+          <p className="text-sm"><Link to={"/terms"}>Terminos y Condiciones</Link></p>
+          <p className="text-sm"><Link to={"/cookies"}>Políticas de Cookies</Link></p>
+          <p className="text-sm"><Link to={"/private"}>Políticas de Privacidad</Link></p>
         </div>
       </footer>
 

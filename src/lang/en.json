@@ -13,17 +13,24 @@
   "ABOUT_US": "About us",
   "CONTACT": "Contact",
   "RIGHT_RESERVED": "Horses HG - All rights reserved",
-  "FORGET_PASSWORD": "¿Olvidaste tu contraseña? Restablecer",
+  "FORGET_PASSWORD": "Forgot your password? Reset",
   "NO_HORSES": "There are no horses yet",
   "WELCOME": "Welcome to Horses HG",
   "TRANSFORM_LIFE": "Transform lives by sponsoring a horse today!",
-  "TRANSFORM_PHRASE": "At Horses HG, we believe in the power of compassion and love for animals. Our mission is to rehabilitate and provide a safe home to amazing old racehorses or those that can no longer be maintained by their owners.",
+  "TRANSFORM_PHRASE": "At Horses HG, we believe in the power of compassion and love for animals. Our mission is to rehabilitate and provide a safe home to amazing old racehorses or those that can no longer be supported by their owners." ,
   "WHY_SPONSOR": "Why sponsor?",
-  "WHY_PHRASE": "Sponsoring a horse is a wonderful way to make a difference in the lives of these majestic animals. Your financial support allows us to cover the costs of feeding, medical care, and housing, ensuring that each horse has a dignified and healthy life.",
+  "WHY_PHRASE": "Sponsoring a horse is a wonderful way to make a difference in the lives of these majestic animals. Your financial support allows us to cover the costs of food, medical care, and housing, ensuring that each horse has a dignified life and healthy.",
   "MEET_HORSES": "Meet Our Horses",
-  "MEET_PHRASE": "Every horse that comes to us has a unique story. We invite you to meet our residents and choose the one that inspires you through our sponsorship program. From brave survivors to charming stablemates, each horse has a special place in our heart and we're sure it will have a special place in yours, too.",
-  "OUR_HORSES": "Our horses",
+  "MEET_PHRASE": "Every horse that comes to us has a unique story. We invite you to meet our residents and choose the one that inspires you through our sponsorship program. From brave survivors to charming stablemates, each horse has a special place in our hearts and we are sure that it will also have it in yours.",
+  "OUR_HORSES": "Our Horses",
   "NO_ACTIVITIES": "There are no activities yet",
   "NEW_ACTIVITY": "New Activity",
-  "MY_ACTIVITIES": "My activities"
-}
+  "MY_ACTIVITIES": "My activities",
+  "ACTIVITY_TITLE": "Join our activities",
+  "ACTIVITY_PHRASE": "We also offer other services: riding lessons, positive reinforcement learning, equestrian tourism, horse fitness... Or help by participating as a volunteer! Send us an email if you are interested.",
+  "CONTACT_US": "CONTACT US!",
+  "SEE_ACTIVITIES": "See Activities",
+  "JOIN_ACTIVITIES": "Participate in our activities",
+  "DESCRIPTION_ACTIVITIES": "Enjoy and learn with them"
+ 
+ }
